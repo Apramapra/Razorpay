@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: rozerpay-checker
+    env: docker         # <-- this is the key line
+    region: oregon
+    plan: starter
+    branch: main
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: DISPLAY
+        value: ":99"
+      - key: PORT
+        value: "8000"
+    autoDeploy: true
